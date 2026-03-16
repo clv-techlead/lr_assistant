@@ -1,0 +1,8 @@
+streamlit
+anthropic
+langchain
+langchain-anthropic
+langchain-community
+faiss-cpu
+pypdf
+python-dotenv
