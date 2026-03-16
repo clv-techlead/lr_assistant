@@ -1,2 +1,4 @@
 .streamlit/secrets.toml
 faiss_indexes/
+*.pyc
+__pycache__/
