@@ -1,1 +1,2 @@
-m
+.streamlit/secrets.toml
+faiss_indexes/
