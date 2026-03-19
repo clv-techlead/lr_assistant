@@ -7,7 +7,7 @@
 # - 6 topic areas grounded in CA via hybrid retrieval
 # - Preview / Edit Content tabs for reviewing and tweaking before download
 # - Refine with additional instructions
-# - Download as polished PDF.
+# - Download as polished PDF
 
 import streamlit as st
 import streamlit.components.v1 as components
