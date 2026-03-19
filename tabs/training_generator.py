@@ -603,7 +603,7 @@ def render():
         preview_html = build_html(guide_data, topic, union_name)
 
         # Download button above the preview
-     st.info("💡To save as PDF: click the guide below to focus it, then press Ctrl+P (or Cmd+P on Mac) and select 'Save as PDF'.")
+        st.info("💡To save as PDF: click the guide below to focus it, then press Ctrl+P (or Cmd+P on Mac) and select 'Save as PDF'.")
 
         if st.button(" Refresh Preview"):
             st.rerun()
