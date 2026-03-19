@@ -498,6 +498,8 @@ def build_html(guide_data: dict, topic: str, union_name: str) -> str:
             @media print {{
                 .sidebar {{ display: none; }}
                 .main {{ padding: 20px; max-width: 100%; }}
+                body {{ background: white; }}
+                .print-btn {{ display: none; }}
             }}
         </style>
     </head>
@@ -541,7 +543,7 @@ def build_html(guide_data: dict, topic: str, union_name: str) -> str:
             </div>
     </div>
 
-        <div style="position:fixed; bottom:20px; right:20px; z-index:999;">
+        <div class="print-btn" style="position:fixed; bottom:20px; right:20px; z-index:999;">
             <button onclick="window.print()" style="
                 background:#1a1a1a;
                 color:white;
