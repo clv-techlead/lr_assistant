@@ -3,7 +3,13 @@ anthropic
 langchain
 langchain-anthropic
 langchain-community
+langchain-text-splitter
 faiss-cpu
 pypdf
 python-dotenv
-sentence=transformers
+sentence-transformers
+google-generativeai
+google-genai
+rank_bm25
+pytz
+weasyprint
