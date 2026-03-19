@@ -3,7 +3,8 @@ anthropic
 langchain
 langchain-anthropic
 langchain-community
-langchain-text-splitter
+langchain-text-splitters
+langchain-huggingface
 faiss-cpu
 pypdf
 python-dotenv
@@ -12,4 +13,3 @@ google-generativeai
 google-genai
 rank_bm25
 pytz
-weasyprint
