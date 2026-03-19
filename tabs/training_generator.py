@@ -14,7 +14,6 @@ import streamlit.components.v1 as components
 from datetime import datetime
 import pytz
 import json
-import io
 import re
 import google.genai as genai
 from utils.rag_utils import load_or_build_index, build_hybrid_retriever, CA_FILES, GEMINI_MODEL
@@ -532,20 +531,6 @@ def build_html(guide_data: dict, topic: str, union_name: str) -> str:
     </html>
     """
 
-def generate_pdf(html_content: str) -> bytes:
-    """
-    Converts the HTML guide to PDF preserving all styling.
-    Returns PDF as bytes for Streamlit download button.
-    """
-    try:
-        import weasyprint
-        pdf_bytes = io.BytesIO()
-        weasyprint.HTML(string=html_content).write_pdf(pdf_bytes)
-        return pdf_bytes.getvalue()
-    except Exception as e:
-        raise RuntimeError(f"PDF generation failed: {e}")
-
-
 def render():
     """
     Renders Tab 3 — Training Material Generator UI
@@ -618,17 +603,7 @@ def render():
         preview_html = build_html(guide_data, topic, union_name)
 
         # Download button above the preview
-        try:
-            pdf_bytes = generate_pdf(preview_html)
-            safe_topic = topic.replace(" ", "_").replace("—", "").replace("/", "_")
-            st.download_button(
-                label="⬇️ Download PDF",
-                data=pdf_bytes,
-                file_name=f"LR_Reference_Guide_{safe_topic}.pdf",
-                mime="application/pdf"
-            )
-        except Exception as e:
-            st.warning(f"PDF generation unavailable: {e}")
+     st.info("💡To save as PDF: click the guide below to focus it, then press Ctrl+P (or Cmd+P on Mac) and select 'Save as PDF'.")
 
         if st.button(" Refresh Preview"):
             st.rerun()
@@ -656,18 +631,7 @@ def render():
                 st.success("Edits saved - switch to Preview tab to see changes.")
 
         with col2:
-            try:
-                edited_html = build_html(edited_data, topic, union_name)
-                pdf_bytes = generate_pdf(edited_html)
-                safe_topic = topic.replace(" ", "_").replace("—", "").replace("/", "_")
-                st.download_button(
-                    label="⬇️ Download Edited PDF",
-                    data=pdf_bytes,
-                    file_name=f"LR_Reference_Guide_{safe_topic}_edited.pdf",
-                    mime="application/pdf"
-                )
-            except Exception as e:
-                st.warning(f"PDF generation unavailable: {e}")
+            st.info("💡 To save edited version as PDF: go to Preview tab, click Refresh Preview, then press Ctrl+P (or Cmd+P on Mac).")
 
     # --- Refine section ---
     st.divider()
