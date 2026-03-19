@@ -138,6 +138,19 @@ def build_html(guide_data: dict, topic: str, union_name: str) -> str:
         Post-processes Gemini's plain text output into formatted HTML.
         Handles bold, italics, lists, removes asterisks, formats Q&A etc.
         """
+
+        # Handle dos_donts dict format before any conversion
+        if key == "dos_donts" and isinstance(content, dict):
+            result = '<p class="section-label do-label">✓ What To Do</p><ul class="do-list">'
+            for item in content.get('DO', content.get('do', [])):
+                result += f'<li>{item}</li>'
+            result += '</ul>'
+            result += '<p class="section-label dont-label">✗ What Not To Do</p><ul class="dont-list">'
+            for item in content.get('DONT', content.get('dont', content.get("DON'T", []))):
+                result += f'<li>{item}</li>'
+            result += '</ul>'
+            return result
+
         if isinstance(content, dict):
             content = "\n".join(f"{k}: {v}" for k, v in content.items())
         elif isinstance(content, list):
@@ -526,7 +539,22 @@ def build_html(guide_data: dict, topic: str, union_name: str) -> str:
             <div class="doc-footer">
                 LR Operations Assistant &nbsp;·&nbsp; TDSB &nbsp;·&nbsp; {generated_date}
             </div>
+    </div>
+
+        <div style="position:fixed; bottom:20px; right:20px; z-index:999;">
+            <button onclick="window.print()" style="
+                background:#1a1a1a;
+                color:white;
+                border:none;
+                padding:10px 20px;
+                font-family:'Source Sans 3',sans-serif;
+                font-size:13px;
+                cursor:pointer;
+                border-radius:4px;
+                box-shadow:0 2px 8px rgba(0,0,0,0.3);
+            ">🖨️ Print / Save as PDF</button>
         </div>
+
     </body>
     </html>
     """
@@ -603,7 +631,13 @@ def render():
         preview_html = build_html(guide_data, topic, union_name)
 
         # Download button above the preview
-        st.info("💡To save as PDF: click the guide below to focus it, then press Ctrl+P (or Cmd+P on Mac) and select 'Save as PDF'.")
+        st.markdown(
+            '<div style="background:#f5f5f5; border-left:3px solid #555; padding:10px 14px; '
+            'font-size:12px; color:#555; border-radius:0 4px 4px 0;">'
+            '💡 To save as PDF: click the guide below to focus it, then press '
+            'Ctrl+P (or Cmd+P on Mac) and select "Save as PDF".</div>',
+            unsafe_allow_html=True
+        )
 
         if st.button(" Refresh Preview"):
             st.rerun()
@@ -631,7 +665,13 @@ def render():
                 st.success("Edits saved - switch to Preview tab to see changes.")
 
         with col2:
-            st.info("💡 To save edited version as PDF: go to Preview tab, click Refresh Preview, then press Ctrl+P (or Cmd+P on Mac).")
+            st.markdown(
+                '<div style="background:#f5f5f5; border-left:3px solid #555; padding:10px 14px; '
+                'font-size:12px; color:#555; border-radius:0 4px 4px 0;">'
+                '💡 To save edited version as PDF: go to Preview tab, click Refresh Preview, '
+                'then press Ctrl+P (or Cmd+P on Mac).</div>',
+                unsafe_allow_html=True
+            )
 
     # --- Refine section ---
     st.divider()
