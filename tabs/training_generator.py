@@ -578,9 +578,9 @@ def build_html(guide_data: dict, topic: str, union_name: str) -> str:
 
 def render():
     """
-    Renders Tab 3 — Training Material Generator UI
+    Renders Tab 3 — FG Material Generator UI
     """
-    st.header("🎓 Training Material Generator")
+    st.header("🎓 Field Guide Generator")
     st.write(
         "Generate a plain-language reference guide for school administrators "
         "on key Labour Relations topics, grounded in the collective agreement."
