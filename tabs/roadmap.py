@@ -73,57 +73,6 @@ def render():
                 <div style="font-weight:600; font-size:14px; margin-bottom:8px;">
                     📄 CA Interpreter
                 </div>
-                <div style="font-size:12px; color:#555; line-height:1.6;">
-                    Plain-language interpretation of collective agreement provisions, 
-                    grounded in actual clause text with source citations.
-                </div>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-
-    with col2:
-        st.markdown(
-            """
-            <div style="
-                border:1px solid #e0e0e0;
-                border-top:3px solid #1a1a2e;
-                border-radius:4px;
-                padding:16px;
-                height:160px;
-            ">
-                <div style="font-weight:600; font-size:14px; margin-bottom:8px;">
-                    📋 Grievance Prep
-                </div>
-                <div style="font-size:12px; color:#555; line-height:1.6;">
-                    Structured risk assessment, recommended Board position, 
-                    key arguments and investigation questions for grievance preparation.
-                </div>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-
-    with col3:
-        st.markdown(
-            """
-            <div style="
-                border:1px solid #e0e0e0;
-                border-top:3px solid #1a1a2e;
-                border-radius:4px;
-                padding:16px;
-                height:160px;
-            ">
-                <div style="font-weight:600; font-size:14px; margin-bottom:8px;">
-                    🧭 Field Guide Generator
-                </div>
-                <div style="font-size:12px; color:#555; line-height:1.6;">
-                    Plain-language reference guides for school administrators 
-                    on key LR topics, grounded in the collective agreement.
-                </div>
-            </div>
-            """,
-            unsafe_allow_html=True
         )
 
     st.markdown("<br>", unsafe_allow_html=True)
