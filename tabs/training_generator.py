@@ -109,19 +109,34 @@ Return ONLY a valid JSON object with exactly these 8 keys. No markdown, no code 
         contents=prompt
     )
 
-    # Clean response and parse JSON
+# Clean response and parse JSON
     raw = response.text.strip()
+
     # Strip markdown code fences if Gemini adds them despite instructions
-    raw = re.sub(r'^```json\s*', '', raw)
-    raw = re.sub(r'^```\s*', '', raw)
-    raw = re.sub(r'\s*```$', '', raw)
+    raw = re.sub(r'^```json\s*', '', raw, flags=re.MULTILINE)
+    raw = re.sub(r'^```\s*', '', raw, flags=re.MULTILINE)
+    raw = re.sub(r'\s*```$', '', raw, flags=re.MULTILINE)
+    raw = raw.strip()
+
+    # Sometimes Gemini wraps the JSON in extra text before or after
+    # Try to extract just the JSON object
+    json_match = re.search(r'\{.*\}', raw, re.DOTALL)
+    if json_match:
+        raw = json_match.group(0)
 
     try:
         return json.loads(raw)
     except json.JSONDecodeError:
-        # If JSON parsing fails return a graceful error dict
-        return {key: f"Content generation error for this section. Please try again."
-                for key, _ in SECTIONS}
+        # Second attempt — try to fix common JSON issues
+        # Replace smart quotes with straight quotes
+        raw = raw.replace('\u201c', '"').replace('\u201d', '"')
+        raw = raw.replace('\u2018', "'").replace('\u2019', "'")
+        try:
+            return json.loads(raw)
+        except json.JSONDecodeError:
+            # Final fallback — return error dict
+            return {key: "Content generation error — please try again."
+                            for key, _ in SECTIONS}
 
 
 def build_html(guide_data: dict, topic: str, union_name: str) -> str:
@@ -609,6 +624,10 @@ def render():
                 api_key=api_key
             )
 
+    if all(v == "Content generation error - please try again."
+           for v in guide_data.values()):
+        st.error("Generation failed - Gemini returned an unexpectd format. Please try again.")
+    else:
         # Store in session state so tabs and buttons don't trigger full rerun
         st.session_state['guide_data'] = guide_data
         st.session_state['guide_topic'] = topic
