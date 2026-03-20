@@ -32,7 +32,7 @@ st.divider()
 tab1, tab2, tab3, tab4 = st.tabs([
     "📄 CA Interpreter",
     "📋 Grievance Prep",
-    "🎓 Training Generator",
+    "🎓 Field Guide Generator",
     "📊 LR Assistant Roadmap"
 ])
 
