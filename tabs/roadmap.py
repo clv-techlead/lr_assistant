@@ -24,7 +24,7 @@ def render():
     st.markdown(
         """
         <div style="
-            background:#1a1a2e;
+            background:#fdf3dc;
             color:#e8e4d9;
             padding:24px 28px;
             border-radius:6px;
@@ -34,7 +34,7 @@ def render():
                 font-size:10px;
                 letter-spacing:3px;
                 text-transform:uppercase;
-                color:#c9a96e;
+                color:#8a6a1f;
                 font-weight:600;
                 margin-bottom:10px;
             ">Strategic Vision</div>
@@ -45,7 +45,7 @@ def render():
             ">
                 The tools built here address the operational core of the LR Lead role — 
                 interpreting agreements, preparing for grievances, and building administrator capacity. 
-                The next phase extends that foundation into <strong style="color:#c9a96e;">
+                The next phase extends that foundation into <strong style="color:#8a6a1f;">
                 systematic intelligence</strong> — turning the day-to-day work of labour relations 
                 into organizational knowledge that informs strategy, reduces risk, and strengthens 
                 the Board's position at the bargaining table.
@@ -65,7 +65,7 @@ def render():
             """
             <div style="
                 border:1px solid #e0e0e0;
-                border-top:3px solid #1a1a2e;
+                border-top:3px solid #fdf3dc;
                 border-radius:4px;
                 padding:16px;
                 height:160px;
@@ -87,7 +87,7 @@ def render():
             """
             <div style="
                 border:1px solid #e0e0e0;
-                border-top:3px solid #1a1a2e;
+                border-top:3px solid #fdf3dc;
                 border-radius:4px;
                 padding:16px;
                 height:160px;
@@ -109,13 +109,13 @@ def render():
             """
             <div style="
                 border:1px solid #e0e0e0;
-                border-top:3px solid #1a1a2e;
+                border-top:3px solid #fdf3dc;
                 border-radius:4px;
                 padding:16px;
                 height:160px;
             ">
                 <div style="font-weight:600; font-size:14px; margin-bottom:8px;">
-                    🎓 Training Generator
+                     🧭 Field Guide Generator
                 </div>
                 <div style="font-size:12px; color:#555; line-height:1.6;">
                     Plain-language reference guides for school administrators 
@@ -132,7 +132,7 @@ def render():
     # --- Roadmap items ---
     roadmap_items = [
         {
-            "icon": "⚖️",
+            "icon": "❶",
             "title": "Grievance Intelligence Dashboard",
             "problem": "Grievance data held across multiple files and systems represents an untapped source of operational and strategic intelligence.",
             "capabilities": [
@@ -144,7 +144,7 @@ def render():
             "value": "Operational Risk Management"
         },
         {
-            "icon": "📡",
+            "icon": "❷",
             "title": "Regulatory Radar",
             "problem": "Legislative changes to the ESA, OHRC and Labour Relations Act can create CA compliance gaps that go undetected until a grievance is filed.",
             "capabilities": [
@@ -156,7 +156,7 @@ def render():
             "value": "Proactive Risk Management"
         },
         {
-            "icon": "🧠",
+            "icon": "❸",
             "title": "Bargaining Intelligence Module",
             "problem": "Bargaining preparation relies heavily on institutional memory and manual research — both of which are time-intensive and inconsistent.",
             "capabilities": [
@@ -174,7 +174,7 @@ def render():
             f"""
             <div style="
                 border:1px solid #e0e0e0;
-                border-left:4px solid #1a1a2e;
+                border-left:4px solid #fdf3dc;
                 border-radius:0 6px 6px 0;
                 padding:20px 24px;
                 margin-bottom:16px;
@@ -189,7 +189,7 @@ def render():
                             align-items:flex-start;
                             margin-bottom:8px;
                         ">
-                            <div style="font-weight:600; font-size:15px; color:#1a1a2e;">
+                            <div style="font-weight:600; font-size:15px; color:#fdf3dc;">
                                 {item['title']}
                             </div>
                             <div style="
@@ -197,8 +197,8 @@ def render():
                                 font-weight:600;
                                 letter-spacing:1.5px;
                                 text-transform:uppercase;
-                                color:#c9a96e;
-                                background:#1a1a2e;
+                                color:#8a6a1f;
+                                background:#fdf3dc;
                                 padding:3px 8px;
                                 border-radius:3px;
                                 white-space:nowrap;
