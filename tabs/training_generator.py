@@ -196,12 +196,12 @@ def build_html(guide_data: dict, topic: str, union_name: str) -> str:
                     continue
                 else:
                     # Remove leading numbers or dashes
-                    clean = re.sub(r'^[\d\-\.\)]+\s*', '', line)
+                    clean = re.sub(r'^[\d\-.\)]+\s*', '', line)
                     html_lines.append(f'<li>{clean}</li>')
                     continue
 
             # Section: FAQ — format Q: and A: pairs
-            if key == "faq":
+            if key == "faq":  # Added condition to scope FAQ formatting
                 if line.upper().startswith("Q:"):
                     question = line[2:].strip()
                     html_lines.append(f'<p class="faq-question">Q: {question}</p>')
@@ -224,7 +224,7 @@ def build_html(guide_data: dict, topic: str, union_name: str) -> str:
 
             # Numbered items — mistakes and when to call LR
             if key in ("mistakes", "call_lr"):
-                clean = re.sub(r'^[\d]+[\.\)]\s*', '', line)
+                clean = re.sub(r'^[\d]+\.[\)]\s*', '', line)
                 html_lines.append(f'<li>{clean}</li>')
                 continue
 
@@ -701,7 +701,7 @@ def render():
 
     refinement = st.text_area(
         label="Refinement instructions",
-        placeholder="e.g. Focus more on occasional teachers, add more detail on documentation requirements, include specific examples of common scenarios...",
+        placeholder="e.g. Focus more on occasional teachers, or this is for new principals, or we've had recent grievances on this topic...",
         height=80,
         key="refinement_input"
     )
