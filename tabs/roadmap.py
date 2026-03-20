@@ -24,7 +24,7 @@ def render():
     st.markdown(
         """
         <div style="
-            background:#fdf3dc;
+            background:#1a1a2e;
             color:#e8e4d9;
             padding:24px 28px;
             border-radius:6px;
@@ -34,7 +34,7 @@ def render():
                 font-size:10px;
                 letter-spacing:3px;
                 text-transform:uppercase;
-                color:#8a6a1f;
+                color:#c9a96e;
                 font-weight:600;
                 margin-bottom:10px;
             ">Strategic Vision</div>
@@ -45,7 +45,7 @@ def render():
             ">
                 The tools built here address the operational core of the LR Lead role — 
                 interpreting agreements, preparing for grievances, and building administrator capacity. 
-                The next phase extends that foundation into <strong style="color:#8a6a1f;">
+                The next phase extends that foundation into <strong style="color:#c9a96e;">
                 systematic intelligence</strong> — turning the day-to-day work of labour relations 
                 into organizational knowledge that informs strategy, reduces risk, and strengthens 
                 the Board's position at the bargaining table.
@@ -65,7 +65,7 @@ def render():
             """
             <div style="
                 border:1px solid #e0e0e0;
-                border-top:3px solid #fdf3dc;
+                border-top:3px solid #1a1a2e;
                 border-radius:4px;
                 padding:16px;
                 height:160px;
@@ -87,7 +87,7 @@ def render():
             """
             <div style="
                 border:1px solid #e0e0e0;
-                border-top:3px solid #fdf3dc;
+                border-top:3px solid #1a1a2e;
                 border-radius:4px;
                 padding:16px;
                 height:160px;
@@ -109,13 +109,13 @@ def render():
             """
             <div style="
                 border:1px solid #e0e0e0;
-                border-top:3px solid #fdf3dc;
+                border-top:3px solid #1a1a2e;
                 border-radius:4px;
                 padding:16px;
                 height:160px;
             ">
                 <div style="font-weight:600; font-size:14px; margin-bottom:8px;">
-                     🧭 Field Guide Generator
+                    🧭 Field Guide Generator
                 </div>
                 <div style="font-size:12px; color:#555; line-height:1.6;">
                     Plain-language reference guides for school administrators 
@@ -174,7 +174,7 @@ def render():
             f"""
             <div style="
                 border:1px solid #e0e0e0;
-                border-left:4px solid #fdf3dc;
+                border-left:4px solid #1a1a2e;
                 border-radius:0 6px 6px 0;
                 padding:20px 24px;
                 margin-bottom:16px;
@@ -189,7 +189,7 @@ def render():
                             align-items:flex-start;
                             margin-bottom:8px;
                         ">
-                            <div style="font-weight:600; font-size:15px; color:#fdf3dc;">
+                            <div style="font-weight:600; font-size:15px; color:#1a1a2e;">
                                 {item['title']}
                             </div>
                             <div style="
@@ -243,7 +243,8 @@ def render():
             padding:8px;
             font-style:italic;
         ">
-            Roadmap priorities reflect the operational realities of large, multi-unionized school board LR practice and the strategic needs of a Senior Manager in this environment.
+            Roadmap priorities reflect the operational realities of large, multi-unionized 
+            school board LR practice and the strategic needs of a Senior Manager in this environment.
         </div>
         """,
         unsafe_allow_html=True
