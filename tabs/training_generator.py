@@ -580,7 +580,7 @@ def render():
     """
     Renders Tab 3 — FG Material Generator UI
     """
-    st.header("🎓 Field Guide Generator")
+    st.header("🧭 Field Guide Generator")
     st.write(
         "Generate a plain-language reference guide for school administrators "
         "on key Labour Relations topics, grounded in the collective agreement."
