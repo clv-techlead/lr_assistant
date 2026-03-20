@@ -109,7 +109,7 @@ Return ONLY a valid JSON object with exactly these 8 keys. No markdown, no code 
         contents=prompt
     )
 
-# Clean response and parse JSON
+    # Clean response and parse JSON
     raw = response.text.strip()
 
     # Strip markdown code fences if Gemini adds them despite instructions
@@ -624,15 +624,15 @@ def render():
                 api_key=api_key
             )
 
-    if all(v == "Content generation error - please try again."
-           for v in guide_data.values()):
-        st.error("Generation failed - Gemini returned an unexpectd format. Please try again.")
-    else:
-        # Store in session state so tabs and buttons don't trigger full rerun
-        st.session_state['guide_data'] = guide_data
-        st.session_state['guide_topic'] = topic
-        st.session_state['guide_union'] = union_name
-        st.success("Reference guide generated")
+        if all(v == "Content generation error - please try again."
+               for v in guide_data.values()):
+            st.error("Generation failed - Gemini returned an unexpectd format. Please try again.")
+        else:
+            # Store in session state so tabs and buttons don't trigger full rerun
+            st.session_state['guide_data'] = guide_data
+            st.session_state['guide_topic'] = topic
+            st.session_state['guide_union'] = union_name
+            st.success("Reference guide generated")
 
     # --- Display area — only shown after generation ---
     if 'guide_data' not in st.session_state:
