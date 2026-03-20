@@ -10,6 +10,7 @@ import streamlit as st
 from tabs.ca_interpreter import render as render_ca_interpreter
 from tabs.grievance_prep import render as render_grievance_prep
 from tabs.training_generator import render as render_training_generator
+from tabs.roadmap import render as render_roadmap
 
 # --- Page configuration ---
 # This must be the first Streamlit command in the file
@@ -32,7 +33,7 @@ tab1, tab2, tab3, tab4 = st.tabs([
     "📄 CA Interpreter",
     "📋 Grievance Prep",
     "🎓 Training Generator",
-    "📊 Trend Dashboard"
+    "📊 LR Assistant Roadmap"
 ])
 
 # Tab 1 — fully built
@@ -47,4 +48,4 @@ with tab3:
     render_training_generator()
 
 with tab4:
-    st.info("🚧 Trend Dashboard — coming soon.")
+    render_roadmap()
